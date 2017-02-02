@@ -6,7 +6,7 @@
 </head>
 
 <body>
-  <h1>Thermostat</h1>
+  <h1 >Thermostat</h1>
 
   <button type='button', id='Up'>Up</button>
   <button type='button', id='Down'>Down</button>
@@ -26,5 +26,11 @@
 
 </body>
 <script src="src/Thermostat.js"></script>
+<script src="src/jquery-3.1.1.min.js"></script>
+<script>
+$("#Up").on("click",function(){
+  $(this).css("background-color", "green");
+});
 
+</script>
 </html>
