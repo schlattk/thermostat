@@ -1,13 +1,20 @@
 $('#Up').on("click", function (){
   thermostat.increase()
+  $('#Temperature').text(thermostat.temperature);
+  $('#energyUsage').text(thermostat.energyUsage());
+
 });
 
 $('#Down').on("click", function (){
   thermostat.decrease()
+  $('#Temperature').text(thermostat.temperature);
+  $('#energyUsage').text(thermostat.energyUsage());
 });
 
 $('#Reset').on("click", function (){
   thermostat.reset()
+  $('#Temperature').text(thermostat.temperature);
+  $('#energyUsage').text(thermostat.energyUsage());
 });
 
 $('#powerStatus').change(function (){
@@ -18,3 +25,5 @@ $('#powerStatus').change(function (){
     thermostat.powerSaverOff()
   }
 });
+$('#Temperature').text(thermostat.temperature);
+$('#energyUsage').text(thermostat.energyUsage());
