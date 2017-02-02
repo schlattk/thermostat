@@ -15,6 +15,12 @@ describe('Thermostat', function(){
     });
   });
 
+  describe('maximum temperature', function(){
+    it("should be 25", function(){
+      expect(thermostat.maximum).toBe(25);
+    });
+  });
+
   describe('Decrease',function(){
     it('should decrease temperature', function(){
       expect(thermostat.decrease).toBeDefined();
