@@ -60,5 +60,22 @@ describe('Thermostat', function(){
       expect(thermostat.maximum).toBe(32);
     });
   });
+  describe('Reset', function(){
+    it("changes temperature to 20c",function(){
+      thermostat.temperature = 25;
+      thermostat.reset();
+      expect(thermostat.temperature).toBe(20);
+    });
+  });
+  describe('Energy usage',function(){
+    it("checks current energy consumption", function(){
+      thermostat.temperature = 16;
+      expect(thermostat.energyUsage()).toEqual("low-usage");
+      thermostat.temperature = 23;
+      expect(thermostat.energyUsage()).toEqual("medium-usage");
+      thermostat.temperature = 28;
+      expect(thermostat.energyUsage()).toEqual("high-usage");
+    });
+  });
 
 });
