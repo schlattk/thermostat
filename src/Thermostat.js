@@ -48,3 +48,5 @@ Thermostat.prototype.energyUsage = function(){
     return "medium-usage"}
   else {return "high-usage"}
 };
+
+var thermostat = new Thermostat();

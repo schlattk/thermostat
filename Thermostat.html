@@ -14,10 +14,9 @@
   <h2 id='Temperature'>5c</h2>
   <button type='button', id='Reset'>Reset</button>
 
-  <button type='button', id='Reset'>Reset</button>
   <h3 id='PowerSavingStatus'>On</h3>
-  <select>
-    <option value="powerSaverOn" id"powerSaverOn"=>Power Saving Mode - On</option>
+  <select id="powerStatus">
+    <option value="powerSaverOn" id"powerSaverOn" selected="selected">Power Saving Mode - On</option>
     <option value="powerSaverOff" id"powerSaverOff">Power Saving Mode - Off</option>
   </select>
 
@@ -27,10 +26,13 @@
 </body>
 <script src="src/Thermostat.js"></script>
 <script src="src/jquery-3.1.1.min.js"></script>
+<script src="src/EventManager.js"></script>
 <script>
-$("#Up").on("click",function(){
-  $(this).css("background-color", "green");
-});
+
+
+// $("#Up").on("click",function(){
+//   $(this).css("background-color", "green");
+// });
 
 </script>
 </html>
