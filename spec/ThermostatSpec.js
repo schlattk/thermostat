@@ -13,11 +13,15 @@ describe('Thermostat', function(){
       thermostat.increase();
       expect(thermostat.temperature).toBe(21);
     });
-  });
-
-  describe('maximum temperature', function(){
-    it("should be 25", function(){
-      expect(thermostat.maximum).toBe(25);
+    it("cannot be more than maximum", function(){
+      thermostat.powerSaverOn();
+      thermostat.temperature = 25;
+      expect(function(){thermostat.increase()}).toThrow("Power Saver is on - Maximum Temperature is 25");
+    });
+    it("cannot be more than maximum", function(){
+      thermostat.powerSaverOff();
+      thermostat.temperature = 32;
+      expect(function(){thermostat.increase()}).toThrow("Maximum Temperature is 32");
     });
   });
 
@@ -38,6 +42,22 @@ describe('Thermostat', function(){
   describe('minimum temperature', function(){
     it("should be 10", function(){
       expect(thermostat.MINIMUM).toBe(10);
+    });
+  });
+
+  describe('powerSaverOn', function(){
+    it('maximum temperature is set at 25c', function(){
+      thermostat.maximum = 26
+      thermostat.powerSaverOn();
+      expect(thermostat.maximum).toBe(25);
+    });
+  });
+
+  describe('powerSaverOff', function(){
+    it('maximum temperature is set at 32c', function(){
+      thermostat.maximum = 33
+      thermostat.powerSaverOff();
+      expect(thermostat.maximum).toBe(32);
     });
   });
 
