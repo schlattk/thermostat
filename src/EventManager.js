@@ -40,7 +40,13 @@ $('#powerStatus').change(function (){
   }
 });
 
-$.get( "http://api.openweathermap.org/data/2.5/weather?q=London&appid=202ee2c09a45f815c3c0193748cea31b&units=metric", function( data ) {
-  $( "#outside" ).text("Outside temperature " + Math.floor(data.main.temp) + "°C");
-  //console.log(data.main.temp);
-});
+// $.get( "http://api.openweathermap.org/data/2.5/weather?q=London&appid=202ee2c09a45f815c3c0193748cea31b&units=metric", function( data ) {
+//   $( "#outside" ).text("Outside temperature " + Math.floor(data.main.temp) + "°C");
+// });
+
+$('#city').change(function() {
+  var city = $('#city').val();
+  $.get( "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=202ee2c09a45f815c3c0193748cea31b&units=metric", function(data) {
+    $("#outside").text("Outside temperature in " + city + " is " + Math.floor(data.main.temp) + "°C.")
+  })
+})
