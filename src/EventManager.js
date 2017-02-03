@@ -1,20 +1,34 @@
+
+
+function update(){
+$('#Temperature').text(thermostat.temperature);
+$('#energyUsage').text(thermostat.energyUsage());
+  if (thermostat.energyUsage() === "low-usage"){
+    $('#energyUsage').css("color", "green");
+  }
+  else if (thermostat.energyUsage()=== "medium-usage") {
+    $('#energyUsage').css("color", "#585858");
+  }
+  else {
+    $('#energyUsage').css("color", "red");
+  }
+};
+update();
+
 $('#Up').on("click", function (){
   thermostat.increase()
-  $('#Temperature').text(thermostat.temperature);
-  $('#energyUsage').text(thermostat.energyUsage());
-
+  update();
 });
 
 $('#Down').on("click", function (){
   thermostat.decrease()
-  $('#Temperature').text(thermostat.temperature);
-  $('#energyUsage').text(thermostat.energyUsage());
+  update();
 });
 
 $('#Reset').on("click", function (){
   thermostat.reset()
-  $('#Temperature').text(thermostat.temperature);
-  $('#energyUsage').text(thermostat.energyUsage());
+  update();
+  $('#powerStatus').val("powerSaverOn");
 });
 
 $('#powerStatus').change(function (){
@@ -25,5 +39,8 @@ $('#powerStatus').change(function (){
     thermostat.powerSaverOff()
   }
 });
-$('#Temperature').text(thermostat.temperature);
-$('#energyUsage').text(thermostat.energyUsage());
+
+$.get( "http://api.openweathermap.org/data/2.5/weather?q=London&appid=202ee2c09a45f815c3c0193748cea31b&units=metric", function( data ) {
+  $( "#outside" ).text("Outside temperature " + Math.floor(data.main.temp) + "°C");
+  //console.log(data.main.temp);
+});
