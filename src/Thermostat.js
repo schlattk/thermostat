@@ -1,7 +1,7 @@
 'use strict';
 
-var Thermostat = function(){
-  this.temperature = 20;
+var Thermostat = function(temp){
+  this.temperature = Number(temp)|| 20;
   this.MINIMUM = 10;
   this.POWERSAVING_ON_MAXIMUM = 25;
   this.POWERSAVING_OFF_MAXIMUM = 32;
@@ -48,5 +48,3 @@ Thermostat.prototype.energyUsage = function(){
     return "medium-usage"}
   else {return "high-usage"}
 };
-
-var thermostat = new Thermostat();

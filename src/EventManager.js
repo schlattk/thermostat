@@ -1,5 +1,13 @@
 
 
+
+// if (typeof localStorage.getItem('temperature') === 'undefined') {
+// console.log(1);
+// var thermostat = new Thermostat();}
+// else{}
+var thermostat = new Thermostat(localStorage.getItem('temperature'));
+console.log(localStorage.getItem('temperature'));
+
 function update(){
 $('#Temperature').text(thermostat.temperature);
 $('#energyUsage').text(thermostat.energyUsage());
@@ -12,7 +20,10 @@ $('#energyUsage').text(thermostat.energyUsage());
   else {
     $('#energyUsage').css("color", "red");
   }
-};
+  element = document.getElementById('Temperature');
+  temp = element.textContent;
+  localStorage.setItem('temperature',temp);
+  };
 update();
 
 $('#Up').on("click", function (){
