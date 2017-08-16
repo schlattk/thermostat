@@ -3,9 +3,8 @@ describe('Thermostat', function(){
 
   it('should start with a temperature of 20c', function(){
     expect(thermostat.temperature).toBe(20);
-  });
-
-  describe('Increase', function(){
+    });
+describe('Increase', function(){
     it('should increase temperature', function(){
       expect(thermostat.increase).toBeDefined();
     });
@@ -16,12 +15,12 @@ describe('Thermostat', function(){
     it("cannot be more than maximum", function(){
       thermostat.powerSaverOn();
       thermostat.temperature = 25;
-      expect(function(){thermostat.increase()}).toThrow("Power Saver is on - Maximum Temperature is 25");
+      expect(function(){thermostat.increase();}).toThrow("Power Saver is on - Maximum Temperature is 25");
     });
     it("cannot be more than maximum", function(){
       thermostat.powerSaverOff();
       thermostat.temperature = 32;
-      expect(function(){thermostat.increase()}).toThrow("Maximum Temperature is 32");
+      expect(function(){thermostat.increase();}).toThrow("Maximum Temperature is 32");
     });
   });
 
@@ -36,7 +35,7 @@ describe('Thermostat', function(){
     });
     it("cannot be less than 10", function(){
       thermostat.temperature = 10;
-      expect(function(){thermostat.decrease()}).toThrow("Minimum Temperature is 10");
+      expect(function(){thermostat.decrease();}).toThrow("Minimum Temperature is 10");
     });
   });
   describe('minimum temperature', function(){
@@ -47,7 +46,7 @@ describe('Thermostat', function(){
 
   describe('powerSaverOn', function(){
     it('maximum temperature is set at 25c', function(){
-      thermostat.maximum = 26
+      thermostat.maximum = 26;
       thermostat.powerSaverOn();
       expect(thermostat.maximum).toBe(25);
     });
@@ -55,7 +54,7 @@ describe('Thermostat', function(){
 
   describe('powerSaverOff', function(){
     it('maximum temperature is set at 32c', function(){
-      thermostat.maximum = 33
+      thermostat.maximum = 33;
       thermostat.powerSaverOff();
       expect(thermostat.maximum).toBe(32);
     });
@@ -77,5 +76,4 @@ describe('Thermostat', function(){
       expect(thermostat.energyUsage()).toEqual("high-usage");
     });
   });
-
 });

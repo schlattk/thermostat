@@ -10,9 +10,9 @@ var Thermostat = function(temp){
 };
 
 Thermostat.prototype.increase = function () {
-  if(this.powerSaver == true && this.temperature == this.POWERSAVING_ON_MAXIMUM) {
+  if(this.powerSaver === true && this.temperature === this.POWERSAVING_ON_MAXIMUM) {
     throw ("Power Saver is on - Maximum Temperature is 25");
-  } else if(this.powerSaver == false && this.temperature == this.POWERSAVING_OFF_MAXIMUM) {
+  } else if(this.powerSaver === false && this.temperature === this.POWERSAVING_OFF_MAXIMUM) {
     throw ("Maximum Temperature is 32");
   } else {
     this.temperature += 1;
@@ -43,8 +43,8 @@ Thermostat.prototype.reset = function() {
 
 Thermostat.prototype.energyUsage = function(){
   if(this.temperature < 18) {
-    return "low-usage"}
+    return "low-usage";}
   else if(this.temperature < 25) {
-    return "medium-usage"}
-  else {return "high-usage"}
+    return "medium-usage";}
+  else {return "high-usage";}
 };
